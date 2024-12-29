@@ -5,6 +5,7 @@ import { Checkbox } from "./ui/checkbox";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Progress } from "@/components/ui/progress";
+import Image from "next/image";
 
 const LeftPanel = () => {
   const [text, setText] = useState<string>(""); // 入力された文字列
@@ -62,7 +63,7 @@ const LeftPanel = () => {
             <p>文字</p>
           </div>
         </div>
-        {/* <Image src="/logo.jpg" alt="ロゴ" height={100} width={100} /> */}
+        {/* <Image src="/icon.png" alt="ロゴ" height={100} width={100} /> */}
         <p>ここに画像</p>
       </div>
 

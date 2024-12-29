@@ -12,11 +12,11 @@ export default function Home() {
     <main className="h-screen w-screen bg-gray-100">
       <Header />
       <ResizablePanelGroup direction="horizontal">
-        <ResizablePanel>
+        <ResizablePanel defaultSize={50}>
           <LeftPanel />
         </ResizablePanel>
         <ResizableHandle withHandle />
-        <ResizablePanel>
+        <ResizablePanel defaultSize={50}>
           <RightPanel />
         </ResizablePanel>
       </ResizablePanelGroup>
