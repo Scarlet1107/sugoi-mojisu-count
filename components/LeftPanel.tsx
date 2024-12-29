@@ -92,7 +92,12 @@ const LeftPanel = () => {
                 />
               </DialogTitle>
               <DialogDescription>
-                このアプリでは、文字数をカウントすることができます。AIによる添削~~~
+                <p>
+                  このアプリでは、文字数をカウントすることができます。無料AIへの相談もすることができます。レポート作成や文章作成にお役立てください！
+                </p>
+                <p>
+                  また、入力されたデータはブラウザに保存されるため、誤ってページを閉じてもデータが消える心配はありません。
+                </p>
               </DialogDescription>
             </DialogHeader>
           </DialogContent>
