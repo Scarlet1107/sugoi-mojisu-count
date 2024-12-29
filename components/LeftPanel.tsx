@@ -18,8 +18,8 @@ import CopyButton from "./CopyButton";
 
 const LeftPanel = () => {
   const [text, setText] = useState<string>(""); // 入力された文字列
-  const [includeSpaces, setIncludeSpaces] = useState<boolean>(true); // 空白を含めるかどうか
-  const [includeLineBreaks, setIncludeLineBreaks] = useState<boolean>(true); // 改行を含めるかどうか
+  const [includeSpaces, setIncludeSpaces] = useState<boolean>(false); // 空白を含めるかどうか
+  const [includeLineBreaks, setIncludeLineBreaks] = useState<boolean>(false); // 改行を含めるかどうか
   const [currentCount, setCurrentCount] = useState<number>(0); // 文字数カウント
   const [goalCount, setGoalCount] = useState<number>(200); // 目標文字数
 
@@ -31,15 +31,17 @@ const LeftPanel = () => {
   }, []);
 
   useEffect(() => {
-    // textが変更されるたびにlocalStorageに保存
     localStorage.setItem("text", text);
     let processedText = text;
-    if (!includeSpaces) {
-      processedText = processedText.replace(/\s/g, "");
-    }
+
     if (!includeLineBreaks) {
       processedText = processedText.replace(/\n/g, "");
     }
+
+    if (!includeSpaces) {
+      processedText = processedText.replace(/[^\S\r\n]/g, "");
+    }
+
     const length = [...processedText].length;
     setCurrentCount(length);
   }, [text, includeSpaces, includeLineBreaks]);

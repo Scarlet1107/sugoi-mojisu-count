@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, Clipboard, ClipboardCheck, ClipboardCopy } from "lucide-react";
+import { Check, Clipboard } from "lucide-react";
 import { Button } from "./ui/button";
 
 interface Props {
