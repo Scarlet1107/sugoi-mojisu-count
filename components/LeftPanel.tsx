@@ -42,7 +42,7 @@ const LeftPanel = () => {
   };
 
   return (
-    <div className="w-full h-full px-8 pt-8">
+    <div className="w-full h-full pt-8 pl-8 pr-4">
       <div className="flex justify-between items-center">
         <div className="flex space-x-8">
           {/* 「現在」の表示を text.length から count に変更 */}
@@ -63,8 +63,7 @@ const LeftPanel = () => {
             <p>文字</p>
           </div>
         </div>
-        {/* <Image src="/icon.png" alt="ロゴ" height={100} width={100} /> */}
-        <p>ここに画像</p>
+        {/* <Image src="/icon2.png" alt="ロゴ" height={100} width={100} /> */}
       </div>
 
       <div className="flex space-x-8 items-centers mt-4">

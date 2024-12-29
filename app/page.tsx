@@ -9,17 +9,19 @@ import {
 
 export default function Home() {
   return (
-    <main className="h-screen w-screen bg-gray-100">
-      <Header />
-      <ResizablePanelGroup direction="horizontal">
-        <ResizablePanel defaultSize={50}>
+    <main className="flex flex-col h-screen">
+    <Header />
+    <div className="flex-1 overflow-hidden">
+      <ResizablePanelGroup direction="horizontal" className="h-full">
+        <ResizablePanel defaultSize={50} minSize={30}>
           <LeftPanel />
         </ResizablePanel>
         <ResizableHandle withHandle />
-        <ResizablePanel defaultSize={50}>
+        <ResizablePanel defaultSize={50} minSize={30}>
           <RightPanel />
         </ResizablePanel>
       </ResizablePanelGroup>
-    </main>
+    </div>
+  </main>
   );
 }
