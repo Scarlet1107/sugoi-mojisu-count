@@ -10,19 +10,22 @@ const RightPanel = () => {
   const [messages, setMessages] = useState<
     { user: string; bot: string | null }[]
   >([]);
-  useEffect(() => {
-    const initialMessages = [
-      { user: "こんにちは", bot: "こんにちは！どのようにお手伝いできますか？" },
-      { user: "今日の天気は？", bot: "今日の天気は晴れです。" },
-      { user: "あなたの名前は？", bot: "私はAIアシスタントです。" },
-      { user: "好きな色は？", bot: "私は色を持っていませんが、青が好きです。" },
-      { user: "ありがとう", bot: "どういたしまして！" },
-    ];
-    setMessages(initialMessages);
-  }, []);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // //デバッグ用 初期メッセージ
+
+  // useEffect(() => {
+  //   const initialMessages = [
+  //     { user: "こんにちは", bot: "こんにちは！どのようにお手伝いできますか？" },
+  //     { user: "今日の天気は？", bot: "今日の天気は晴れです。" },
+  //     { user: "あなたの名前は？", bot: "私はAIアシスタントです。" },
+  //     { user: "好きな色は？", bot: "私は色を持っていませんが、青が好きです。" },
+  //     { user: "ありがとう", bot: "どういたしまして！" },
+  //   ];
+  //   setMessages(initialMessages);
+  // }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
