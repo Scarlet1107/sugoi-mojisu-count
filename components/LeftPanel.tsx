@@ -14,6 +14,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Button } from "./ui/button";
+import CopyButton from "./CopyButton";
 
 const LeftPanel = () => {
   const [text, setText] = useState<string>(""); // 入力された文字列
@@ -83,7 +85,14 @@ const LeftPanel = () => {
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>すごい文字数カウントへようこそ！！</DialogTitle>
+              <DialogTitle>
+                <Image
+                  src={"/welcomeNeco.png"}
+                  height={300}
+                  width={300}
+                  alt="ようこそネコ"
+                />
+              </DialogTitle>
               <DialogDescription>
                 このアプリでは、文字数をカウントすることができます。AIによる添削~~~
               </DialogDescription>
@@ -127,6 +136,7 @@ const LeftPanel = () => {
         value={text}
         onChange={(e) => handleTextChange(e.target.value)}
       />
+      {text.length > 0 && <CopyButton textToCopy={text} />}
     </div>
   );
 };

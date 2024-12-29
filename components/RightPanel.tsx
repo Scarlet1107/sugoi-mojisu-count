@@ -117,7 +117,7 @@ const RightPanel = () => {
       <Separator className="mb-4" />
 
       <div className="flex-shrink-0 bg-white pb-4">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 pr-4">
           <Input
             type="text"
             value={input}
