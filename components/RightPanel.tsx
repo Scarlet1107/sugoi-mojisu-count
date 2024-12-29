@@ -10,6 +10,16 @@ const RightPanel = () => {
   const [messages, setMessages] = useState<
     { user: string; bot: string | null }[]
   >([]);
+  useEffect(() => {
+    const initialMessages = [
+      { user: "こんにちは", bot: "こんにちは！どのようにお手伝いできますか？" },
+      { user: "今日の天気は？", bot: "今日の天気は晴れです。" },
+      { user: "あなたの名前は？", bot: "私はAIアシスタントです。" },
+      { user: "好きな色は？", bot: "私は色を持っていませんが、青が好きです。" },
+      { user: "ありがとう", bot: "どういたしまして！" },
+    ];
+    setMessages(initialMessages);
+  }, []);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -64,20 +74,18 @@ const RightPanel = () => {
   };
 
   return (
-    <div className="h-full flex flex-col pt-8 pl-4 pr-8">
-      <div className="flex-1 min-h-0 overflow-y-auto">
+    <div className="h-full flex flex-col pt-8 pl-4">
+      <div className="flex-1 min-h-0 overflow-y-auto pr-4">
         <div className="space-y-4">
           {messages.map((msg, index) => (
             <div key={index} className="space-y-4">
               {msg.user && (
                 <div className="flex justify-end">
-                  <div className="max-w-[80%]">
-                    <Card className="bg-blue-500 text-white">
-                      <CardContent className="p-3">
-                        <p className="break-words">{msg.user}</p>
-                      </CardContent>
-                    </Card>
-                  </div>
+                  <Card className="bg-blue-500 text-white">
+                    <CardContent className="p-3">
+                      <p className="break-words">{msg.user}</p>
+                    </CardContent>
+                  </Card>
                 </div>
               )}
               {msg.bot && (

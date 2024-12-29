@@ -13,11 +13,11 @@ export default function Home() {
     <Header />
     <div className="flex-1 overflow-hidden">
       <ResizablePanelGroup direction="horizontal" className="h-full">
-        <ResizablePanel defaultSize={50} minSize={30}>
+        <ResizablePanel defaultSize={50} minSize={35}>
           <LeftPanel />
         </ResizablePanel>
         <ResizableHandle withHandle />
-        <ResizablePanel defaultSize={50} minSize={30}>
+        <ResizablePanel defaultSize={50} minSize={35}>
           <RightPanel />
         </ResizablePanel>
       </ResizablePanelGroup>

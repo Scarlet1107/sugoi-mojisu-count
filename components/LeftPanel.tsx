@@ -6,6 +6,14 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Progress } from "@/components/ui/progress";
 import Image from "next/image";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const LeftPanel = () => {
   const [text, setText] = useState<string>(""); // 入力された文字列
@@ -63,7 +71,25 @@ const LeftPanel = () => {
             <p>文字</p>
           </div>
         </div>
-        {/* <Image src="/icon2.png" alt="ロゴ" height={100} width={100} /> */}
+        <Dialog>
+          <DialogTrigger>
+            <Image
+              src="/tutorialButton.png"
+              alt="チュートリアル"
+              height={100}
+              width={100}
+              className="cursor-pointer"
+            />
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>すごい文字数カウントへようこそ！！</DialogTitle>
+              <DialogDescription>
+                このアプリでは、文字数をカウントすることができます。AIによる添削~~~
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
       </div>
 
       <div className="flex space-x-8 items-centers mt-4">
