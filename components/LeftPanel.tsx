@@ -105,6 +105,7 @@ const LeftPanel = () => {
         <div className="flex items-center space-x-1">
           <Checkbox
             id="space"
+            aria-label="空白を含めるかどうか"
             checked={includeSpaces}
             onCheckedChange={(checked: boolean) => {
               setIncludeSpaces(checked);
@@ -115,6 +116,7 @@ const LeftPanel = () => {
         <div className="flex items-center space-x-1">
           <Checkbox
             id="lineBreak"
+            aria-label="改行を含めるかどうか"
             checked={includeLineBreaks}
             onCheckedChange={(checked: boolean) => {
               setIncludeLineBreaks(checked);
