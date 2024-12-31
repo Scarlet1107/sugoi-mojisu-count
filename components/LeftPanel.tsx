@@ -61,12 +61,18 @@ const LeftPanel = () => {
           <div className="flex items-center">
             <p>目標：</p>
             <Input
-              className="w-20"
-              type="number"
+              className="w-24"
+              type="text"
+              inputMode="numeric"
               value={goalCount}
               step={100}
               min={0}
-              onChange={(e) => setGoalCount(Number(e.target.value))}
+              onChange={(e) => {
+                const value = Number(e.target.value);
+                if (!isNaN(value)) {
+                  setGoalCount(value);
+                }
+              }}
             />
             <p>文字</p>
           </div>
@@ -92,9 +98,9 @@ const LeftPanel = () => {
                 />
               </DialogTitle>
               <DialogDescription>
-                  このアプリでは、文字数をカウントすることができます。無料AIへの相談もすることができます。レポート作成や文章作成にお役立てください！
-                  <br />
-                  また、入力されたデータはブラウザに保存されるため、誤ってページを閉じてもデータが消える心配はありません。
+                このアプリでは、文字数をカウントすることができます。無料AIへの相談もすることができます。レポート作成や文章作成にお役立てください！
+                <br />
+                また、入力されたデータはブラウザに保存されるため、誤ってページを閉じてもデータが消える心配はありません。
               </DialogDescription>
             </DialogHeader>
           </DialogContent>
