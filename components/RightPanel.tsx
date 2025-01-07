@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Send, Loader2 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { useTextContext } from "@/context/TextContext";
+import { MAX_HISTORY } from "@/constants/constants";
 
 const RightPanel = () => {
   const { text } = useTextContext(); // 入力された文字列
@@ -40,13 +41,14 @@ const RightPanel = () => {
     setIsLoading(true);
 
     try {
+      const trimmedMessages = messages.slice(-MAX_HISTORY); // 過去のメッセージを最大 MAX_HISTORY 件に制限
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: [
             { role: "system", content: prompt }, // システムメッセージを先頭に追加
-            ...messages.map((msg) => ({
+            ...trimmedMessages.map((msg) => ({
               role: "user",
               content: msg.user,
             })),

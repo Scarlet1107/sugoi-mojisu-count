@@ -26,8 +26,12 @@ const LeftPanel = () => {
 
   useEffect(() => {
     const savedText = localStorage.getItem("text");
+    const savedGoal = localStorage.getItem("goal");
     if (savedText) {
       setText(savedText);
+    }
+    if (savedGoal) {
+      setGoalCount(Number(savedGoal));
     }
   }, []);
 
@@ -67,11 +71,13 @@ const LeftPanel = () => {
               inputMode="numeric"
               value={goalCount}
               step={100}
+              autoFocus
               min={0}
               onChange={(e) => {
                 const value = Number(e.target.value);
                 if (!isNaN(value)) {
                   setGoalCount(value);
+                  localStorage.setItem("goal", value.toString());
                 }
               }}
             />
