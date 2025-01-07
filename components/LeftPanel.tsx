@@ -15,13 +15,14 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import CopyButton from "./CopyButton";
+import { useTextContext } from "@/context/TextContext";
 
 const LeftPanel = () => {
-  const [text, setText] = useState<string>(""); // 入力された文字列
+  const { text, setText } = useTextContext(); // 入力された文字列
   const [includeSpaces, setIncludeSpaces] = useState<boolean>(false); // 空白を含めるかどうか
   const [includeLineBreaks, setIncludeLineBreaks] = useState<boolean>(false); // 改行を含めるかどうか
   const [currentCount, setCurrentCount] = useState<number>(0); // 文字数カウント
-  const [goalCount, setGoalCount] = useState<number>(200); // 目標文字数
+  const [goalCount, setGoalCount] = useState<number>(1000); // 目標文字数
 
   useEffect(() => {
     const savedText = localStorage.getItem("text");

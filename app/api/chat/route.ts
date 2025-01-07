@@ -9,8 +9,13 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
 
   if (!body.messages || !Array.isArray(body.messages)) {
-    return NextResponse.json({ error: "Messages are required and should be an array." }, { status: 400 });
+    return NextResponse.json(
+      { error: "Messages are required and should be an array." },
+      { status: 400 }
+    );
   }
+
+  console.log("Received messages:", body.messages);
 
   try {
     const response = await openai.chat.completions.create({
@@ -23,6 +28,9 @@ export async function POST(req: NextRequest) {
     });
   } catch (error) {
     console.error("Error from OpenAI:", error);
-    return NextResponse.json({ error: "Failed to fetch response from OpenAI" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to fetch response from OpenAI" },
+      { status: 500 }
+    );
   }
 }

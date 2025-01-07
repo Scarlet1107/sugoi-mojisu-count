@@ -5,27 +5,17 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Send, Loader2 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { useTextContext } from "@/context/TextContext";
 
 const RightPanel = () => {
+  const { text } = useTextContext(); // 入力された文字列
+  const prompt = `ユーザーは以下のテキストを書いています。あなたは以下の文章を書くことをサポートするためのAIです。その状況を踏まえたうえで質問に回答してください。また回答にはマークダウンなどは使用せず、可能な限り平文で回答してください。\`\`\`${text}\`\`\``;
   const [messages, setMessages] = useState<
     { user: string; bot: string | null }[]
   >([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  // //デバッグ用 初期メッセージ
-
-  // useEffect(() => {
-  //   const initialMessages = [
-  //     { user: "こんにちは", bot: "こんにちは！どのようにお手伝いできますか？" },
-  //     { user: "今日の天気は？", bot: "今日の天気は晴れです。" },
-  //     { user: "あなたの名前は？", bot: "私はAIアシスタントです。" },
-  //     { user: "好きな色は？", bot: "私は色を持っていませんが、青が好きです。" },
-  //     { user: "ありがとう", bot: "どういたしまして！" },
-  //   ];
-  //   setMessages(initialMessages);
-  // }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -34,6 +24,12 @@ const RightPanel = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // 不要な "*" を削除する関数
+  const cleanMessage = (message: string | null) => {
+    if (!message) return "";
+    return message.replace(/\*/g, ""); // "*" を削除
+  };
 
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;
@@ -49,8 +45,12 @@ const RightPanel = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: [
-            ...messages.map((msg) => ({ role: "user", content: msg.user })),
-            { role: "user", content: userMessage },
+            { role: "system", content: prompt }, // システムメッセージを先頭に追加
+            ...messages.map((msg) => ({
+              role: "user",
+              content: msg.user,
+            })),
+            { role: "user", content: userMessage }, // ユーザーの現在の入力
           ],
         }),
       });
@@ -96,7 +96,9 @@ const RightPanel = () => {
                   <div className="max-w-[80%]">
                     <Card className="bg-white">
                       <CardContent className="p-3">
-                        <p className="break-words text-gray-800">{msg.bot}</p>
+                        <p className="break-words whitespace-pre-wrap text-gray-800">
+                          {cleanMessage(msg.bot)}
+                        </p>
                       </CardContent>
                     </Card>
                   </div>
