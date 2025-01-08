@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import Header from "@/components/Header";
 import LeftPanel from "@/components/LeftPanel";
 import RightPanel from "@/components/RightPanel";
@@ -6,6 +7,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TextProvider } from "@/context/TextContext";
 
 export default function Home() {
@@ -23,6 +25,19 @@ export default function Home() {
               <RightPanel />
             </ResizablePanel>
           </ResizablePanelGroup>
+
+          <Tabs defaultValue="account" className="w-[400px]">
+            <TabsList>
+              <TabsTrigger value="account">Account</TabsTrigger>
+              <TabsTrigger value="password">Password</TabsTrigger>
+            </TabsList>
+            <TabsContent value="account">
+              Make changes to your account here.
+            </TabsContent>
+            <TabsContent value="password">
+              Change your password here.
+            </TabsContent>
+          </Tabs>
         </TextProvider>
       </div>
     </main>
