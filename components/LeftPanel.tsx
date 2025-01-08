@@ -90,14 +90,15 @@ const LeftPanel = () => {
       </Dialog>
       <div className="flex justify-between items-center">
         <div className="flex space-x-8">
-          <div className="flex items-center">
-            <p>現在： </p>
-            <p>{currentCount}</p>
+          <div className="flex items-center space-x-1">
+            <p>現在</p>
+            <p className="font-semibold">{currentCount}</p>
+            <p>文字</p>
           </div>
           <div className="flex items-center">
             <p>目標：</p>
             <Input
-              className="w-24"
+              className="w-20 md:w-24"
               type="text"
               inputMode="numeric"
               value={goalCount}
@@ -147,6 +148,7 @@ const LeftPanel = () => {
 
       <Textarea
         className="h-1/2"
+        placeholder="ここにカウントしたい文章を入力"
         value={text}
         onChange={(e) => handleTextChange(e.target.value)}
       />

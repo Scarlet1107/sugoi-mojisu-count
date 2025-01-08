@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/resizable";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Loader } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 const ResponsiveSwitcher = () => {
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
@@ -22,7 +22,12 @@ const ResponsiveSwitcher = () => {
 
   // 初回のサーバーサイド描画では、空の要素を返す
   if (isMobile === null) {
-    return <Loader className="animate-spin flex justify-center items-center" />;
+    return (
+      <div className="flex justify-center space-x-4 items-center h-screen w-screen">
+        <Loader2 className="animate-spin" />
+        <h2 className="text-xl">ローディング中...</h2>
+      </div>
+    );
   }
 
   return (

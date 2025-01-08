@@ -123,7 +123,7 @@ const RightPanel = () => {
 
       <Separator className="mb-4" />
 
-      <div className="flex-shrink-0 bg-white pb-4">
+      <div className="fixed md:static bottom-8 right-2 md:flex-shrink-0 bg-white pb-4">
         <div className="flex items-center gap-2 pr-4">
           <Input
             type="text"
