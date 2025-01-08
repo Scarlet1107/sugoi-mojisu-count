@@ -23,7 +23,7 @@ const Header = () => {
       </Head>
       <header className="w-screen h-16 text-center  bg-gray-800 text-white flex pl-16 items-center">
         <Image
-          src={"/header.png"}
+          src={"/word-counter/header.png"}
           height={100}
           width={300}
           alt="すごい文字数カウント"

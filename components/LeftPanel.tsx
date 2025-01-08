@@ -87,7 +87,7 @@ const LeftPanel = () => {
         <Dialog>
           <DialogTrigger>
             <Image
-              src="/tutorialButton.png"
+              src="/word-counter/tutorialButton.png"
               alt="チュートリアル"
               height={100}
               width={100}
@@ -98,7 +98,7 @@ const LeftPanel = () => {
             <DialogHeader>
               <DialogTitle>
                 <Image
-                  src={"/welcomeNeco.png"}
+                  src={"/word-couter/welcomeNeco.png"}
                   height={300}
                   width={300}
                   alt="ようこそネコ"
