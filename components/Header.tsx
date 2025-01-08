@@ -15,7 +15,7 @@ const Header = () => {
               name: "すごい文字数カウント",
               description:
                 "リアルタイム文字数カウントとAIアドバイスで文章を改善する便利なアプリ。",
-              url: "https://sugoi-mojisu-count.vercel.app/",
+              url: "https://scarlet7.net/word-counter/",
               image: "/icon.png",
             }),
           }}
