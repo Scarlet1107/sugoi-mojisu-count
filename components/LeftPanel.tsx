@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dialog";
 import CopyButton from "./CopyButton";
 import { useTextContext } from "@/context/TextContext";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const LeftPanel = () => {
   const { text, setText } = useTextContext(); // 入力された文字列
@@ -23,6 +24,7 @@ const LeftPanel = () => {
   const [includeLineBreaks, setIncludeLineBreaks] = useState<boolean>(false); // 改行を含めるかどうか
   const [currentCount, setCurrentCount] = useState<number>(0); // 文字数カウント
   const [goalCount, setGoalCount] = useState<number>(1000); // 目標文字数
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const savedText = localStorage.getItem("text");
@@ -58,6 +60,34 @@ const LeftPanel = () => {
 
   return (
     <div className="w-full h-full pt-8 pl-8 pr-4">
+      <Dialog defaultOpen={isMobile}>
+        <DialogTrigger>
+          <Image
+            src="/word-counter/tutorialButton.png"
+            alt="チュートリアル"
+            height={100}
+            width={100}
+            className="cursor-pointer"
+          />
+        </DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>
+              <Image
+                src="/word-counter/welcomeNeco.png"
+                height={200}
+                width={300}
+                alt="ようこそネコ"
+              />
+            </DialogTitle>
+            <DialogDescription>
+              このアプリでは、文字数をカウントすることができます。無料AIへの相談もすることができます。レポート作成や文章作成にお役立てください！
+              <br />
+              また、入力されたデータはブラウザに保存されるため、誤ってページを閉じてもデータが消える心配はありません。
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
       <div className="flex justify-between items-center">
         <div className="flex space-x-8">
           <div className="flex items-center">
@@ -85,34 +115,6 @@ const LeftPanel = () => {
             <p>文字</p>
           </div>
         </div>
-        <Dialog>
-          <DialogTrigger>
-            <Image
-              src="/word-counter/tutorialButton.png"
-              alt="チュートリアル"
-              height={100}
-              width={100}
-              className="cursor-pointer"
-            />
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>
-                <Image
-                  src={"/word-couter/welcomeNeco.png"}
-                  height={300}
-                  width={300}
-                  alt="ようこそネコ"
-                />
-              </DialogTitle>
-              <DialogDescription>
-                このアプリでは、文字数をカウントすることができます。無料AIへの相談もすることができます。レポート作成や文章作成にお役立てください！
-                <br />
-                また、入力されたデータはブラウザに保存されるため、誤ってページを閉じてもデータが消える心配はありません。
-              </DialogDescription>
-            </DialogHeader>
-          </DialogContent>
-        </Dialog>
       </div>
 
       <div className="flex space-x-8 items-centers mt-4">
