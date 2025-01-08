@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 import { TextProvider } from "@/context/TextContext";
 import LeftPanel from "@/components/LeftPanel";
 import RightPanel from "@/components/RightPanel";
@@ -8,11 +9,22 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import React from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Loader } from "lucide-react";
 
 const ResponsiveSwitcher = () => {
-  const isMobile = useIsMobile();
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+  const checkMobile = useIsMobile();
+
+  useEffect(() => {
+    setIsMobile(checkMobile);
+  }, [checkMobile]);
+
+  // 初回のサーバーサイド描画では、空の要素を返す
+  if (isMobile === null) {
+    return <Loader className="animate-spin flex justify-center items-center" />;
+  }
+
   return (
     <TextProvider>
       {isMobile ? (

@@ -102,7 +102,6 @@ const LeftPanel = () => {
               inputMode="numeric"
               value={goalCount}
               step={100}
-              autoFocus
               min={0}
               onChange={(e) => {
                 const value = Number(e.target.value);
