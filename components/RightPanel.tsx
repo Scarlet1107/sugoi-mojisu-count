@@ -57,7 +57,10 @@ const RightPanel = () => {
         }),
       });
 
-      if (!res.ok) throw new Error("Failed to fetch response");
+      if (!res.ok) {
+        console.error("Failed to fetch response:", res);
+        throw new Error("Failed to fetch response.");
+      }
 
       const data = await res.json();
       setMessages((prev) => {
