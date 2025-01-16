@@ -42,7 +42,7 @@ const RightPanel = () => {
 
     try {
       const trimmedMessages = messages.slice(-MAX_HISTORY); // 過去のメッセージを最大 MAX_HISTORY 件に制限
-      const res = await fetch("/word-counter/api/chat", {
+      const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -1,9 +1,5 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-  basePath: "/word-counter",
-  assetPrefix: "/word-counter/",
-};
+const nextConfig: NextConfig = {};
 
 export default nextConfig;
