@@ -6,16 +6,6 @@ const openai = new OpenAI({
 });
 
 export async function POST(req: NextRequest) {
-  const origin = req.headers.get("origin");
-  const allowedOrigin = ["http://localhost:3000", "https://scarlet7.net"];
-
-  if (!origin || !allowedOrigin.includes(origin)) {
-    return NextResponse.json(
-      { error: "CORS policy does not allow access from this origin." },
-      { status: 403 }
-    );
-  }
-
   const body = await req.json();
 
   if (!body.messages || !Array.isArray(body.messages)) {
@@ -39,7 +29,7 @@ export async function POST(req: NextRequest) {
       },
       {
         headers: {
-          "Access-Control-Allow-Origin": origin, // リクエスト元を許可
+          "Access-Control-Allow-Origin": "*", // すべてのオリジンを許可
           "Access-Control-Allow-Methods": "POST, OPTIONS",
           "Access-Control-Allow-Headers": "Content-Type",
         },
@@ -52,7 +42,7 @@ export async function POST(req: NextRequest) {
       {
         status: 500,
         headers: {
-          "Access-Control-Allow-Origin": origin,
+          "Access-Control-Allow-Origin": "*", // すべてのオリジンを許可
           "Access-Control-Allow-Methods": "POST, OPTIONS",
           "Access-Control-Allow-Headers": "Content-Type",
         },
@@ -62,21 +52,11 @@ export async function POST(req: NextRequest) {
 }
 
 export async function OPTIONS(req: NextRequest) {
-  const origin = req.headers.get("origin");
-  const allowedOrigin = ["http://localhost:3000", "https://scarlet7.net"];
-
-  if (!origin || !allowedOrigin.includes(origin)) {
-    return NextResponse.json(
-      { error: "CORS policy does not allow access from this origin." },
-      { status: 403 }
-    );
-  }
-
   return NextResponse.json(
     {},
     {
       headers: {
-        "Access-Control-Allow-Origin": origin,
+        "Access-Control-Allow-Origin": "*", // すべてのオリジンを許可
         "Access-Control-Allow-Methods": "POST, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
       },
