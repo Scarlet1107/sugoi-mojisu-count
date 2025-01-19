@@ -21,12 +21,14 @@ const Header = () => {
           }}
         />
       </Head>
-      <header className="w-screen h-16 text-center  bg-gray-800 text-white flex pl-16 items-center">
+      <header className="w-screen text-center  bg-gray-800 text-white flex pl-16 items-center">
         <Image
           src={"/word-counter/header.png"}
           height={100}
           width={300}
           alt="すごい文字数カウント"
+          loading="eager"
+          className="py-2"
         />
       </header>
     </>

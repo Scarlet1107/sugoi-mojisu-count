@@ -147,7 +147,7 @@ const LeftPanel = () => {
       </div>
 
       <Textarea
-        className="h-1/2"
+        className="h-full md:h-1/2"
         placeholder="ここにカウントしたい文章を入力"
         value={text}
         onChange={(e) => handleTextChange(e.target.value)}

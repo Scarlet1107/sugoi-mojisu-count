@@ -17,7 +17,27 @@ const RightPanel = () => {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
+  useEffect(() => {
+    setMessages([
+      { user: "こんにちは", bot: "こんにちは！どのようにお手伝いできますか？" },
+      {
+        user: "今日はいい天気ですね",
+        bot: "そうですね、今日はとてもいい天気です。",
+      },
+      {
+        user: "最近どうですか？",
+        bot: "おかげさまで順調です。あなたはどうですか？",
+      },
+      {
+        user: "プログラミングを学びたいです",
+        bot: "素晴らしいですね！どの言語に興味がありますか？",
+      },
+      {
+        user: "JavaScriptについて教えてください",
+        bot: "JavaScriptはウェブ開発で広く使われている言語です。",
+      },
+    ]);
+  }, []);
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -82,8 +102,8 @@ const RightPanel = () => {
   };
 
   return (
-    <div className="h-full flex flex-col pt-8 pl-4">
-      <div className="flex-1 min-h-0 overflow-y-auto pr-4">
+    <div className="h-full flex flex-col pt-8 md:pl-4">
+      <div className="flex-1 min-h-0 overflow-y-auto md:pr-4 pb-16 md:pb-0">
         <div className="space-y-4">
           {messages.map((msg, index) => (
             <div key={index} className="space-y-4">
@@ -127,7 +147,7 @@ const RightPanel = () => {
       <Separator className="mb-4" />
 
       <div className="fixed md:static bottom-8 right-2 md:flex-shrink-0 bg-white pb-4">
-        <div className="flex items-center gap-2 pr-4">
+        <div className=" items-center gap-2 pr-4 flex">
           <Input
             type="text"
             value={input}
@@ -135,7 +155,6 @@ const RightPanel = () => {
             onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()}
             placeholder="メッセージを入力してください..."
             className="flex-1"
-            disabled={isLoading}
           />
           <Button
             onClick={handleSend}
