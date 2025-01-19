@@ -15,7 +15,7 @@ const Header = () => {
               name: "すごい文字数カウント",
               description:
                 "リアルタイム文字数カウントとAIアドバイスで文章を改善する便利なアプリ。",
-              url: "https://scarlet7.net/word-counter/",
+              url: "https://scarlet7.net/",
               image: "/icon.png",
             }),
           }}
@@ -23,7 +23,7 @@ const Header = () => {
       </Head>
       <header className="w-screen h-16 text-center  bg-gray-800 text-white flex pl-16 items-center">
         <Image
-          src={"/word-counter/header.png"}
+          src={"/header.png"}
           height={100}
           width={300}
           alt="すごい文字数カウント"

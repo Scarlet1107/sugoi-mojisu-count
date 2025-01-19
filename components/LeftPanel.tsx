@@ -63,7 +63,7 @@ const LeftPanel = () => {
       <Dialog defaultOpen={isMobile}>
         <DialogTrigger>
           <Image
-            src="/word-counter/tutorialButton.png"
+            src="/tutorialButton.png"
             alt="チュートリアル"
             height={100}
             width={100}
@@ -74,7 +74,7 @@ const LeftPanel = () => {
           <DialogHeader>
             <DialogTitle>
               <Image
-                src="/word-counter/welcomeNeco.png"
+                src="/welcomeNeco.png"
                 height={200}
                 width={300}
                 alt="ようこそネコ"
