@@ -17,27 +17,6 @@ const RightPanel = () => {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    setMessages([
-      { user: "こんにちは", bot: "こんにちは！どのようにお手伝いできますか？" },
-      {
-        user: "今日はいい天気ですね",
-        bot: "そうですね、今日はとてもいい天気です。",
-      },
-      {
-        user: "最近どうですか？",
-        bot: "おかげさまで順調です。あなたはどうですか？",
-      },
-      {
-        user: "プログラミングを学びたいです",
-        bot: "素晴らしいですね！どの言語に興味がありますか？",
-      },
-      {
-        user: "JavaScriptについて教えてください",
-        bot: "JavaScriptはウェブ開発で広く使われている言語です。",
-      },
-    ]);
-  }, []);
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
