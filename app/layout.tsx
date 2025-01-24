@@ -13,8 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://scarlet7.net"),
   title: "My webpage",
   description: "This is my webpage",
+  icons: {
+    icon: "https://scarlet7.net/icon.png",
+  },
 };
 
 export default function RootLayout({
