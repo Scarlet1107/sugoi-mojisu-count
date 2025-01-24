@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { TextProvider } from "@/context/TextContext";
-import LeftPanel from "@/components/LeftPanel";
-import RightPanel from "@/components/RightPanel";
+import LeftPanel from "@/app/word-counter/components/LeftPanel";
+import RightPanel from "@/app/word-counter/components/RightPanel";
 import {
   ResizableHandle,
   ResizablePanel,

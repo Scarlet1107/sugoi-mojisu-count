@@ -13,22 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "すごい文字数カウント",
-  description:
-    "リアルタイム文字数カウントとAIアドバイスで文章を改善し、作業効率を大幅に向上できる便利なアプリ。無料で高性能なAIが使える！大学レポートやブログ執筆、X(Twitter)での投稿に",
-  openGraph: {
-    title: "すごい文字数カウント",
-    description:
-      "リアルタイム文字数カウントとAIアドバイスで文章を改善し、作業効率を大幅に向上できる便利なアプリ。無料で高性能なAIが使える！大学レポートやブログ執筆、X(Twitter)での投稿に",
-    images: [
-      {
-        url: "/icon.png",
-        width: 100,
-        height: 100,
-        alt: "Icon",
-      },
-    ],
-  },
+  title: "My webpage",
+  description: "This is my webpage",
 };
 
 export default function RootLayout({

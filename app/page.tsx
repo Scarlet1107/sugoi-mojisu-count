@@ -1,11 +1,11 @@
-import Header from "@/components/Header";
-import ResponsiveSwitcher from "@/components/ResponsiveSwitcher";
+import React from 'react'
 
-export default function Home() {
+const Page = () => {
   return (
-    <main className="flex flex-col h-screen">
-      <Header />
-      <ResponsiveSwitcher />
-    </main>
-  );
+    <div>
+      This is my page
+    </div>
+  )
 }
+
+export default Page

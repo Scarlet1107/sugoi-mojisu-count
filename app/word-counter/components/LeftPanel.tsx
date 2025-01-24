@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Textarea } from "./ui/textarea";
-import { Checkbox } from "./ui/checkbox";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
+import { Textarea } from "../../../components/ui/textarea";
+import { Checkbox } from "../../../components/ui/checkbox";
+import { Input } from "../../../components/ui/input";
+import { Label } from "../../../components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import Image from "next/image";
 import {
